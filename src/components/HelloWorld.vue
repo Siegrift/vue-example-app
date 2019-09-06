@@ -12,7 +12,7 @@
     <div v-html="rawVHtml"></div>
     <div v-html="safeVHtml"></div>
 
-    <!-- html interpolation -->
+    <!-- html interpolation is safe because it's put into DOM as text node -->
     <div>{{rawInterHtml}}</div>
     <div>{{safeInterHtml}}</div>
     
@@ -48,7 +48,7 @@ export default {
     return {
       rawVHtml: '<b>unsafe v-html</b>',
       safeVHtml: p.createHTML('safe v-html'),
-      rawInterHtml: '<b>unsafe interpolated html</b>',
+      rawInterHtml: '<img src=x onerror="alert(0)">',
       safeInterHtml: p.createHTML('safe interpolated html'),
       rawSrcdocHtml: '<b>unsafe srcdoc html</b>',
       safeSrcdocHtml: p.createHTML('safe srcdoc html'),
@@ -58,11 +58,6 @@ export default {
       scriptBody: 'console.log("script body")',
       conditionalSafeVHtml: p.createHTML('safe condit html'),
     }
-  },
-  render(c) {
-    console.log('whatever')
-  	return <div>asdaslndlsadnlsa</div>
-    // return c('span', {domProps: {x: undefined}, attrs: {id: 'test'}}, 'hello')
   }
 }
 </script>
