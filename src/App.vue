@@ -7,11 +7,15 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import Fnc from './components/FunctionComponent.js'
+import SvgComp from './components/SvgComponent'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    HelloWorld,
+    Fnc,
+    SvgComp
   }
 }
 </script>
