@@ -46,7 +46,7 @@
 </template>
 
 <script>
-const p = TrustedTypes.createPolicy('vue-app', {createHTML: (s) => s, createURL: (s) => s, createScript: (s) => s});
+const p = (trustedTypes || TrustedTypes).createPolicy('vue-app', {createHTML: (s) => s, createURL: (s) => s, createScript: (s) => s});
 export default {
   name: 'HelloWorld',
   props: {

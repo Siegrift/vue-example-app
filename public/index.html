@@ -7,13 +7,15 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>vue-example-app</title>
     <meta http-equiv="Content-Security-Policy" content="trusted-types default vue-app">
+    <script src="https://wicg.github.io/trusted-types/dist/es5/trustedtypes.build.js" data-csp="trusted-types default vue-app"></script>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but vue-example-app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <script>
-      TrustedTypes.createPolicy('default', {
+      console.log(trustedTypes || TrustedTypes);
+      (trustedTypes || TrustedTypes).createPolicy('default', {
         createURL: (s) => {
           console.log('IGNORE THIS: default url', s);
           return s;
@@ -30,7 +32,7 @@
           console.log('default script', s);
           return s;
         },
-      }, true)
+      }, true);
     </script>
     <div id="app"></div>
     <div id="fnc"></div>
